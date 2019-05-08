@@ -1,6 +1,6 @@
 TL;DR version:
    Everything in pwntools is open source. Most is under an MIT license, but a
-   few pieces are under GPL or a BSD 2-clause licence.
+   few pieces are under GPL, BSD 2-clause or BSD 3-clause licence.
 
 This license covers everything within this project, except for a few pieces
 of code that we either did not write ourselves or which we derived from code

@@ -70,6 +70,8 @@ def main(args):
         # But first: We find the right module
         if context.os == 'freebsd':
             mod = constants.freebsd
+        elif context.os == 'openbsd':
+            mod = constants.openbsd
         else:
             mod = getattr(getattr(constants, context.os), context.arch)
 

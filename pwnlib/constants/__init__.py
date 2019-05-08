@@ -15,13 +15,16 @@ Example:
     188
     >>> hex(constants.freebsd.SYS_stat)
     '0xbc'
+    >>> hex(constants.openbsd.SYS_stat)
+    '0x26'
     >>> 0 | constants.linux.i386.SYS_stat
     106
     >>> 0 + constants.linux.amd64.SYS_stat
     4
 
-The submodule ``freebsd`` contains all constants for FreeBSD, while the
-constants for Linux have been split up by architecture.
+The submodules ``freebsd`` and ``openbsd`` contain all constants for
+FreeBSD and OpenBSD respectively, while the constants for Linux have
+been split up by architecture.
 
 The variables of the submodules will be "lifted up" by setting the
 :data:`pwnlib.context.arch` or :data:`pwnlib.context.os` in a manner similar to

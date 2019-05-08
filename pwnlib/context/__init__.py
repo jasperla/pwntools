@@ -360,7 +360,7 @@ class ContextType(object):
     }
 
     #: Valid values for :meth:`pwnlib.context.ContextType.os`
-    oses = sorted(('linux','freebsd','windows','cgc','android'))
+    oses = sorted(('linux','freebsd','windows','cgc','android', 'openbsd'))
 
     big_32    = {'endian': 'big', 'bits': 32}
     big_64    = {'endian': 'big', 'bits': 64}
@@ -977,7 +977,7 @@ class ContextType(object):
             >>> context.os = 'foobar' #doctest: +ELLIPSIS
             Traceback (most recent call last):
             ...
-            AttributeError: os must be one of ['android', 'cgc', 'freebsd', 'linux', 'windows']
+            AttributeError: os must be one of ['android', 'cgc', 'freebsd', 'linux', 'windows', 'openbsd']
         """
         os = os.lower()
 
