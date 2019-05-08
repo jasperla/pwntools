@@ -1511,6 +1511,15 @@ class ELF(ELFFile):
     aslr=pie
 
     @property
+    def retguard(self):
+        """:class:`bool`: Whether the current binary was compiled with retguard."""
+        s_randomdata = self.get_section_by_name('.openbsd.randomdata')
+        if s_randomdata and len(s_randomdata.data()) >= 48:
+            return True
+
+        return False
+
+    @property
     def rpath(self):
         """:class:`bool`: Whether the current binary has an ``RPATH``."""
         dt_rpath = self.dynamic_by_tag('DT_RPATH')
@@ -1568,6 +1577,10 @@ class ELF(ELFFile):
                 True: green("PIE enabled"),
                 False: red("No PIE (%#x)" % self.address)
             }[self.pie],
+            "Retguard:".ljust(10) + {
+                True: green("Retguard found"),
+                False: red("No retguard found"),
+            }[self.retguard],
         ])
 
         # Execstack may be a thing, even with NX enabled, because of glibc
